@@ -83,7 +83,7 @@
 
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
-          <button id="login" class="button button-block"/>Log In</button>
+          <button id="loginA" class="button button-block"/>Log In</button>
 
         </form>
 
@@ -96,6 +96,8 @@
       if (typeof(Storage) !== "undefined") {
 
         var login=[3];
+
+
 
         var fname = document.querySelector('input[name="fname"]');
         login[0]= fname.value;
@@ -153,7 +155,7 @@
     const subBtn=document.querySelector('#submit');
     subBtn.addEventListener('click',foo);
 
-    const logBtn=document.querySelector('#login');
+    const logBtn=document.querySelector('#loginA');
     logBtn.addEventListener('click',action);
     </script>
 
