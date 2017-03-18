@@ -24,7 +24,7 @@
       <div id="signup">
         <h1>Sign Up for Free</h1>
 
-        <form action="/" method="post">
+        <form action="#" onsubmit="return foo();">
 
           <div class="top-row">
             <div class="field-wrap">
@@ -65,7 +65,7 @@
       <div id="login">
         <h1>Welcome Back!</h1>
 
-        <form action="/" method="post">
+        <form action="#" onsubmit="return foo();">
 
           <div class="field-wrap">
             <label>
@@ -114,8 +114,8 @@
         //var login_details = JSON.parse(localStorage.getItem(email.value));
         var login_details = JSON.parse(localStorage.getItem(email.value));
         console.log(JSON.stringify(login_details));
-        window.location=("Page 2/almost there.html");
-
+        window.location="Page2/almostthere.html";
+        return false;
       }
     }
 
@@ -148,14 +148,14 @@
     function action(){
       if(match() == true){
         console.log("success");
-        window.location=("Page 2/almost there.html");
+        window.location=("Page2/almostthere.html");
       }
       else{
         console.log("failure");
       }
     }
     const subBtn=document.querySelector('#submit');
-    subBtn.addEventListener('click',foo);
+    //subBtn.addEventListener('click',foo);
 
     const logBtn=document.querySelector('#loginA');
     logBtn.addEventListener('click',action);
