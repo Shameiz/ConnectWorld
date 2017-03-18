@@ -100,13 +100,13 @@
 
 
         var fname = document.querySelector('input[name="fname"]');
-        login[0]= fname.value;
+        login[2]= fname.value;
 
         var lname = document.querySelector('input[name="lname"]');
         login[1]= lname.value;
 
         var password = document.querySelector('input[name="pword"]');
-        login[2]= password.value;
+        login[0]= password.value;
 
         var email = document.querySelector('input[name="email"]');
         localStorage.setItem(email.value, JSON.stringify(login));
@@ -131,7 +131,7 @@
           var login_array= JSON.stringify(login_details);
 
           if(login_details!=null){
-            if(passText==JSON.parse(login_array)[2]) return true;
+            if(passText==JSON.parse(login_array)[0]) return true;
             else{
               console.log("login details, pass not right.");
               return false;

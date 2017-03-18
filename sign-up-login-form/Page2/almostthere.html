@@ -13,47 +13,47 @@
 
 <body>
   <div class="container">  
-  <form id="contact" action="" method="post">
+  <form id="contact" action="#" onsubmit="return storeToLocal();">
     <h3><b>You're almost there.</b></h3>
     <h4>Enter Usernames.</h4>
     <fieldset>
-      <input placeholder="Your name" type="text" tabindex="1" required autofocus>
+      <input id="name" placeholder="Your name" type="text" stored="1" tabindex="1" required autofocus>
     </fieldset>
     <fieldset>
-      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+      <input id="email" placeholder="Your Email Address" type="email" stored="0" tabindex="2" required>
     </fieldset> 
     <fieldset>
-      <input placeholder="Your Phone Number (optional)" type="tel" tabindex="3" required>
+      <input id="phone" placeholder="Your Phone Number (optional)" type="tel" stored="1" tabindex="3" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Snapchat Username" type="tel" tabindex="3" required>
+      <input id="snapchat" placeholder="Snapchat Username" type="text" stored="1" tabindex="3" required>
     </fieldset>
         <fieldset>
-      <input placeholder="Instagram Username" type="tel" tabindex="3" required>
+      <input id="instagram" placeholder="Instagram Username" type="tel" stored="1" tabindex="3" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Facebook URL" type="url" tabindex="4" required>
+      <input id="facebook" placeholder="Facebook URL" type="url" stored="1" tabindex="4" required>
     </fieldset>
      <fieldset>
-      <input placeholder="WeChat" type="url" tabindex="4" required>
+      <input id="wechat" placeholder="WeChat" type="url" stored="1" tabindex="4" required>
     </fieldset>
      <fieldset>
-      <input placeholder="Twitter" type="url" tabindex="4" required>
+      <input id="twitter" placeholder="Twitter" type="url" stored="1" tabindex="4" required>
     </fieldset>
      <fieldset>
-      <input placeholder="Tumblr" type="url" tabindex="4" required>
+      <input id="tumblr" placeholder="Tumblr" type="url" stored="1" tabindex="4" required>
      <fieldset>
-      <input placeholder="Google Plus" type="url" tabindex="4" required>
+      <input id="google" placeholder="Google Plus" type="url" stored="1" tabindex="4" required>
     </fieldset>
     <fieldset>
-      <input placeholder="Youtube" type="url" tabindex="4" required>
+      <input id="youtube" placeholder="Youtube" type="url" stored="1" tabindex="4" required>
     </fieldset>
         <fieldset>
-      <input placeholder="AngelList" type="url" tabindex="4" required>
+      <input id="angellist" placeholder="AngelList" type="url" stored="1" tabindex="4" required>
     </fieldset>
     </fieldset>
     <fieldset>
-      <textarea placeholder="Type your message here...." tabindex="5" required></textarea>
+      <input id="message" placeholder="Type your message here...." type="text" stored="1" tabindex="5" required>
     </fieldset>
     <fieldset>
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
@@ -61,7 +61,23 @@
     <p class="copyright">Insert Domain Name </a></p>
   </form>
 </div>
-  
+
+<script>
+function storeToLocal() {
+  var userInfo = document.querySelectorAll("input[stored='1']");
+  var userEmail = document.querySelector("input[id='email']");
+  console.log(userInfo.length);
+  var login = [userInfo.length + 2];
+
+  // set element 0 to password
+  login[0] = JSON.parse(localStorage.getItem(userEmail.value))[0];
+  for (var i = 0; i < userInfo.length; i++) {
+    login[i+1] = userInfo[i].value;
+  }
+
+  console.log(JSON.stringify(login));
+}
+</script>
   
 </body>
 </html>
