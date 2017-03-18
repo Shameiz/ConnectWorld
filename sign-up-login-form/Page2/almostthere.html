@@ -13,12 +13,9 @@
 
 <body>
   <div class="container">
-  <!--<form id="contact" action="#" onsubmit="return storeToLocal();">-->
+  <form id="contact" action="#" onsubmit="return storeToLocal();">
     <h3><b>You're almost there.</b></h3>
     <h4>Enter Usernames.</h4>
-    <fieldset>
-      <input id="name" placeholder="Your name" type="text" stored="1" tabindex="1" required autofocus>
-    </fieldset>
     <fieldset>
       <input id="email" placeholder="Your Email Address" type="text" stored="0" tabindex="2" required>
     </fieldset>
@@ -59,7 +56,7 @@
       <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button>
     </fieldset>
     <p class="copyright">Insert Domain Name </a></p>
-  <!--</form>-->
+  </form>
   <img id="qr" src="dice.png" />
 </div>
 
@@ -67,23 +64,29 @@
 function storeToLocal() {
   var userInfo = document.querySelectorAll("input[stored='1']");
   var userEmail = document.querySelector("input[id='email']");
-  console.log(userInfo.length);
-  var login = [userInfo.length + 2];
+  var value=  JSON.parse(localStorage.getItem(userEmail.value))
+  //console.log(userInfo.length);
+  var login = [userInfo.length + 4];
 
-  // set element 0 to password
-  login[0] = JSON.parse(localStorage.getItem(userEmail.value))[0];
-  for (var i = 0; i < userInfo.length; i++) {
-    login[i+1] = userInfo[i].value;
-  }
+   for(var i=0; i<userInfo.length + 3; i++){
+     if(i<3){
+       login[i]=value[i];
+     }
+     else {
+       login[i]=userInfo[i-3].value;
+     }
+   }
+   login[i]=userEmail.value;
+   console.log(login);
 
   localStorage.setItem(userEmail.value, JSON.stringify(login));
 
-  var qr_info = document.querySelectorAll("input");
+  //var qr_info = document.querySelectorAll("input");
 
   //var img = document.createElement("img");
   //img.src = "http://api.qrserver.com/v1/create-qr-code/?data=HelloWorld!&size=100x100";
   var img= document.querySelector('#qr');
-  img.src="http://api.qrserver.com/v1/create-qr-code/?data="+login+"!&size=100x100";
+  img.src="http://api.qrserver.com/v1/create-qr-code/?data="+login+"&size=100x100";
 
   console.log(img);
 }
