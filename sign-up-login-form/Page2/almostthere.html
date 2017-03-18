@@ -76,6 +76,13 @@ function storeToLocal() {
   }
 
   localStorage.setItem(userEmail.value, JSON.stringify(login));
+
+  var qr_info = document.querySelectorAll("input");
+
+  var img = document.createElement("img");
+  img.src = "http://api.qrserver.com/v1/create-qr-code/?data=HelloWorld!&size=100x100";
+
+  console.log(img);
 }
 </script>
   
