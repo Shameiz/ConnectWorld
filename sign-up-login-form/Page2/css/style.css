@@ -86,7 +86,7 @@ fieldset {
   -webkit-transition: border-color 0.3s ease-in-out;
   -moz-transition: border-color 0.3s ease-in-out;
   transition: border-color 0.3s ease-in-out;
-  border: 3px solid #aaa;
+  border: 3px solid #fff;
 }
 
 #contact textarea {
@@ -126,6 +126,10 @@ fieldset {
   color: #FFF;
   outline: 0;
   border: 1px solid #aaa;
+}
+
+textarea:focus, input:focus {
+    color: #888;
 }
 
 ::-webkit-input-placeholder {
