@@ -75,7 +75,7 @@ function storeToLocal() {
     login[i+1] = userInfo[i].value;
   }
 
-  console.log(JSON.stringify(login));
+  localStorage.setItem(email.value, JSON.stringify(login));
 }
 </script>
   
