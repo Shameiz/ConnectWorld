@@ -21,8 +21,20 @@ h6 {
     font-weight: 700;
 }
 
+#button {
+     line-height: 12px;
+     width: 18px;
+     font-size: 8pt;
+     font-family: tahoma;
+     margin-top: 1px;
+     margin-right: 2px;
+     position:absolute;
+     top:0;
+     right:0;
+ }
+
 .topnav {
-    font-size: 14px; 
+    font-size: 14px;
 }
 
 .lead {
@@ -159,6 +171,9 @@ h6 {
         margin-bottom: 0;
     }
 }
+
+
+
 
 footer {
     padding: 50px 0;
