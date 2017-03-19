@@ -48,36 +48,36 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1> First Name, Last Name</h1>
-                        <h3>(Univervity Name or short bio) </h3>
+                        <h1 id="name"> First Name, Last Name</h1>
+                        <h3 id="bio">(Univervity Name or short bio) </h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                                <a id="twitter" href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
+                                <a id="instagram" href="#" class="btn btn-default btn-lg"><i class="fa fa-instagram fa-fw"></i> <span class="network-name">Instagram</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                                <a id="facebook" href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-snapchat" aria-hidden="true"></i> <span class="network-name">Snapchat</span></a>
+                                <a id="snapchat" href="#" class="btn btn-default btn-lg"><i class="fa fa-snapchat" aria-hidden="true"></i> <span class="network-name">Snapchat</span></a>
                             </li>
 
                             <br> </br>
                             <br>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                                <a id="github" href="#" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                                <a id="linkedin" href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-wechat"></i> <span class="network-name">WeChat</span></a>
+                                <a id="wechat" href="#" class="btn btn-default btn-lg"><i class="fa fa-wechat"></i> <span class="network-name">WeChat</span></a>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-default btn-lg"><i class="fa fa-google plus"></i> <span class="network-name">Google +</span></a>
+                                <a id="google" href="#" class="btn btn-default btn-lg"><i class="fa fa-google plus"></i> <span class="network-name">Google +</span></a>
                             </li>
                         </ul>
                     </div>
@@ -92,6 +92,42 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
+
+    <script>
+    $(function() {
+        var contents = JSON.parse(localStorage.getItem(localStorage.getItem("currentLogin")));
+        //Names:
+        var name = document.querySelector("h1[id='name']");
+        name.innerHTML = contents[2] + " " + contents[1];
+
+        // Description:
+        var bio = document.querySelector("h3[id='bio']");
+        bio.innerHTML = contents[14];
+
+        // Instagram
+        var twitter = document.querySelector("a[id='twitter']");
+        twitter.href = contents[8];
+
+        var instagram = document.querySelector("a[id='instagram']");
+        instagram.href = contents[5];
+
+        var facebook = document.querySelector("a[id='facebook']");
+        facebook.href = contents[6];
+
+        var snapchat = document.querySelector("a[id='snapchat']");
+        snapchat.href = contents[4];
+
+        var linkedin = document.querySelector("a[id='linkedin']");
+        linkedin.href = contents[13];
+
+        var wechat = document.querySelector("a[id='wechat']");
+        wechat.href = contents[7];
+
+        var google = document.querySelector("a[id='google']");
+        google.href = contents[10];
+    });
+
+    </script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
