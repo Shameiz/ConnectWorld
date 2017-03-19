@@ -60,7 +60,7 @@
     </fieldset>
     <p class="copyright">Insert Domain Name </a></p>
   </form>
-  <img id="qr" src="dice.png" />
+  <!--<img id="qr" src="dice.png" />-->
 </div>
 
 <script>
@@ -88,10 +88,10 @@ function storeToLocal() {
 
   //var img = document.createElement("img");
   //img.src = "http://api.qrserver.com/v1/create-qr-code/?data=HelloWorld!&size=100x100";
-  var img= document.querySelector('#qr');
-  img.src="http://api.qrserver.com/v1/create-qr-code/?data="+login+"&size=100x100";
+  //var img= document.querySelector('#qr');
+  //img.src="http://api.qrserver.com/v1/create-qr-code/?data="+login+"&size=100x100";
 
-  console.log(img);
+  //console.log(img);
 }
 const btn=document.querySelector('#contact-submit');
 btn.addEventListener('click',storeToLocal);
