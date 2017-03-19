@@ -69,7 +69,7 @@
       <div id="login">
         <h1>Welcome Back!</h1>
 
-        <form action="#" onsubmit="return foo();">
+        <form action="#" onsubmit="return actionA();">
 
           <div class="field-wrap">
             <label>
@@ -150,20 +150,23 @@
 
     }
 
-    function action(){
+    function actionA(){
       if(match() == true){
         console.log("success");
-        window.location=("Page2/almostthere.html");
+        localStorage.setItem("currentLogin", emailText);
+        window.location="Page2/almostthere.html";
+        return false;
       }
       else{
         console.log("failure");
+        return true;
       }
     }
     const subBtn=document.querySelector('#submit');
     //subBtn.addEventListener('click',foo);
 
     const logBtn=document.querySelector('#loginA');
-    logBtn.addEventListener('click',action);
+    logBtn.addEventListener('click', actionA);
     </script>
 
 
