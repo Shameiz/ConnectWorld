@@ -136,7 +136,11 @@
           var login_array= JSON.stringify(login_details);
 
           if(login_details!=null){
-            if(passText==JSON.parse(login_array)[0]) return true;
+            if(passText==JSON.parse(login_array)[0]) 
+            {
+                localStorage.setItem("currentLogin", emailText);
+                return true;
+            }
             else{
               console.log("login details, pass not right.");
               return false;
@@ -153,7 +157,6 @@
     function actionA(){
       if(match() == true){
         console.log("success");
-        localStorage.setItem("currentLogin", emailText);
         window.location="Page2/almostthere.html";
         return false;
       }
