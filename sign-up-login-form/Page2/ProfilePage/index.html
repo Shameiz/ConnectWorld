@@ -90,6 +90,7 @@
                           </ul>
                       </div>
                  </div>
+                 <img id="qr" src="" alt="qr">
              </div>
 
          </div>
@@ -136,6 +137,21 @@
 
          var github = document.querySelector("a[id='github']");
          github.href = contents[14];
+
+         var email= localStorage.getItem("currentLogin");
+         var login= JSON.parse(localStorage.getItem(email.value));
+         var arr= [login.length-1];
+         for(var i=0; i<arr.length; i++){
+           arr[i]=login[i+1];
+         }
+         //var qr_code= document.querySelector('#qr');
+         //qr.src="http://api.qrserver.com/v1/create-qr-code/?data="+arr+"&size=100x100";
+
+         var img = document.createElement("img");
+         //img.src = "http://api.qrserver.com/v1/create-qr-code/?data"+arr+"&size=100x100";
+         var img= document.querySelector('#qr');
+         img.src="http://api.qrserver.com/v1/create-qr-code/?data="+arr+"&size=100x100";
+
      });
 
      </script>
