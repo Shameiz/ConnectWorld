@@ -114,6 +114,7 @@
 
         var email = document.querySelector('input[name="email"]');
         localStorage.setItem(email.value, JSON.stringify(login));
+        localStorage.setItem("currentLogin", email.value);
 
         //var login_details = JSON.parse(localStorage.getItem(email.value));
         var login_details = JSON.parse(localStorage.getItem(email.value));
